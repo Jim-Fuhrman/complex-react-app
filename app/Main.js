@@ -56,9 +56,9 @@ useEffect(() => {
     localStorage.setItem("complexappUsername", state.user.username)
     localStorage.setItem("complexappAvatar", state.user.avatar)
   } else {
-    localStorage.setItem("complexappToken")
-    localStorage.setItem("complexappUsername")
-    localStorage.setItem("complexappAvatar")
+    localStorage.removeItem("complexappToken")
+    localStorage.removeItem("complexappUsername")
+    localStorage.removeItem("complexappAvatar")
   }
 }, [state.loggedIn])
 

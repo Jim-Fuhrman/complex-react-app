@@ -3,6 +3,7 @@ import ReactDM from "react-dom"
 import { useImmerReducer } from "use-immer"
 // Brad sent an email on 03-29-2022 saying to replace the next line with the one that follows it
 // import ReactDOM from "react-dom"
+import {CSSTransition} from "react-transition-group"
 import { createRoot } from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Axios from "axios"
@@ -89,7 +90,9 @@ function Main() {
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          {state.isSearchOpen ? <Search /> : ''}
+          <CSSTransition timeout={330} in={state.isSearchOpen} classNames="search-overlay" unmountOnExit>
+            <Search />
+          </CSSTransition>
           
           <Footer />
         </BrowserRouter>
